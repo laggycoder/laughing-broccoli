@@ -1,0 +1,14 @@
+import ast
+def arrfl(arr):
+    flattened_arr = []
+    for item in arr:
+        if isinstance(item, list):
+            flattened_arr.extend(arrfl(item))
+        else:
+            flattened_arr.append(item)
+    return flattened_arr
+
+arr_str = input()
+arr = ast.literal_eval(arr_str)
+result = arrfl(arr)
+print(result)
